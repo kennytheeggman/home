@@ -17,6 +17,8 @@ Plug('hrsh7th/cmp-cmdline')
 Plug('hrsh7th/nvim-cmp')
 Plug('mason-org/mason.nvim')
 Plug('mason-org/mason-lspconfig.nvim')
+Plug('dnlhc/glance.nvim')
+Plug('lewis6991/gitsigns.nvim')
 
 vim.call('plug#end')
 
@@ -26,6 +28,7 @@ vim.opt.number = true
 vim.opt.wrap = false
 vim.opt.laststatus = 3
 vim.opt.hlsearch = false
+vim.opt.signcolumn = 'yes'
 vim.cmd.colorscheme("onedark")
 
 vim.keymap.set('v', '<', '<gv')
@@ -49,7 +52,7 @@ vim.keymap.set({'n', 'v'}, '<c-l>', 'lllll')
 vim.keymap.set('n', '<c-b>', ':NvimTreeToggle<CR>')
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'gr', '<cmd>Glance references<CR>')
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -69,6 +72,10 @@ vim.diagnostic.config({
 	severity_sort = true,
 })
 
+require('gitsigns').setup({
+	numhl = true,
+})
+require('glance').setup({})
 require('supermaven-nvim').setup({keymaps = {accept_suggestion = "<C-y>"}})
 require('snacks').setup({picker = {layout = { layout = { win_options = { statusline = {} } } }, win_options = { winbar = "" } } })
 local function tree_attach(bufnr)

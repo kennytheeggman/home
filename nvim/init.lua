@@ -114,6 +114,7 @@ require('mason-lspconfig').setup({
 		'cssls',
 		'html',
 		'jsonls',
+		'gopls'
 	},
 })
 require('render-markdown').setup({})

@@ -19,6 +19,7 @@ Plug('mason-org/mason.nvim')
 Plug('mason-org/mason-lspconfig.nvim')
 Plug('dnlhc/glance.nvim')
 Plug('lewis6991/gitsigns.nvim')
+Plug('MeanderingProgrammer/render-markdown.nvim')
 
 vim.call('plug#end')
 
@@ -115,3 +116,4 @@ require('mason-lspconfig').setup({
 		'jsonls',
 	},
 })
+require('render-markdown').setup({})
